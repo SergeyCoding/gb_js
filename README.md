@@ -1,1 +1,2 @@
-# gb_js
+# Geekbrains
+## JavaScript
