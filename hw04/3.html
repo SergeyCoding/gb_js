@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необходимо создать переменную dayNumber, в которую пользователь должен ввести 
 целое число в интервале [1, 32).
 Если пользователь ввел иное значение, необходимо вывести в консоль 
@@ -18,10 +20,18 @@
 Примечание: выражение [1, 32) означает от 1 включительно, до 32, не включая 
 число 32.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    const dayNumber = Number.parseInt(prompt("Введите целое число в интервале [1, 32): "));
+
+    if (dayNumber >= 1 && dayNumber < 32) {
+      const decada = Math.min(3, 1 + Math.floor((dayNumber - 1) / 10));
+      console.log(`Число ${dayNumber} попадает в ${decada} декаду месяца.`);
+    } else {
+      console.log("Неверное значение");
+    }
+  </script>
 </body>
+
 </html>

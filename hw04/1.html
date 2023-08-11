@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework</title>
-  </head>
-  <body>
-    <!--
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
 Создать переменные positive и negative, в которые пользователь вводит с 
 клавиатуры значения. Нужно попросить пользователя ввести положительное число в 
 переменную positive и отрицательное в переменную negative. 
@@ -19,10 +21,18 @@
 Если же пользователь где-то ввел неверное значение, то необходимо вывести 
 в консоль "Одно или более значений некорректно.".
 -->
-    <script>
-      "use strict";
+  <script>
+    "use strict";
 
-      // Здесь пишем решение, данный комментарий необходимо стереть.
-    </script>
-  </body>
+    const positive = Number.parseFloat(prompt("Введите положительное число: "));
+    const negative = Number.parseFloat(prompt("Введите отрицательное число: "));
+
+    if (negative < 0 && positive > 0) {
+      console.log("Все значения верные.");
+    } else {
+      console.log("Одно или более значений некорректно.");
+    }
+  </script>
+</body>
+
 </html>

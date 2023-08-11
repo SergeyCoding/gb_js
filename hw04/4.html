@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание.
 Если вам показалось домашнее задание простым, выполняем данный пункт.
 
@@ -27,10 +29,23 @@
 Уточнение: Пользователь всегда вводит корректное положительное целое число.
 Подсказка: Возможно, вам понадобится округление чисел и оператор %.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    const num = Number.parseInt(prompt("Введите целое число: "));
+
+    let currentNumber = num;
+    let str = ` единиц: ${currentNumber % 10}`;
+    currentNumber = Math.trunc(currentNumber / 10);
+
+    str = ` десятков: ${currentNumber % 10}` + str;
+    currentNumber = Math.trunc(currentNumber / 10);
+
+    str = ` сотен: ${currentNumber % 10}` + str;
+    currentNumber = Math.trunc(currentNumber / 10);
+
+    console.log(`В числе ${num} количество${str}`);
+  </script>
 </body>
+
 </html>
