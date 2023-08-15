@@ -9,4 +9,15 @@
 сообщение "Размер заработной платы за вычетом налогов равен N."
 */
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+const salary = Number(prompt("2. Введите зарплату: "));
+
+if (Number.isFinite(salary)) {
+    printSalaryWithoutTax(salary);
+} else {
+    console.log("Значение задано неверно");
+}
+
+
+function printSalaryWithoutTax(salary) {
+    console.log(`Размер заработной платы за вычетом налогов равен ${salary * 0.87}.`);
+}

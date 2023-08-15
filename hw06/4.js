@@ -18,4 +18,19 @@ console.log(sum(2, 6)); должно вывести число 8 в консол
 Демонстрировать работы функций не обязательно.
 */
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+function sum(a, b) {
+    return a + b;
+}
+
+function mul(a, b) {
+    return a * b;
+}
+
+function sub(a, b) {
+    return Math.abs(a - b);
+}
+
+function div(a, b) {
+    return a / b;
+}
+
