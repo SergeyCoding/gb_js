@@ -14,11 +14,9 @@ const n1 = Number(prompt("3. Введите первое число: "));
 const n2 = Number(prompt("3. Введите второе число: "));
 const n3 = Number(prompt("3. Введите третье число: "));
 
-Max(n1, n2, n3);
+max(n1, n2, n3);
 
-function Max(a, b, c) {
-    const x = a > b ? a : b;
-    const result = x > c ? x : c;
-    console.log(`Максимальное значение среди чисел ${a}, ${b}, ${c} равно ${result}.`);
+function max(a, b, c) {
+    console.log(`Максимальное значение среди чисел ${a}, ${b}, ${c} равно ${Math.max(a, b, c)}.`);
 }
 

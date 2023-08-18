@@ -9,8 +9,8 @@
 
 const number = Number(prompt("1. Введите число: "));
 
-console.log(`Куб числа: ${Cube(number)}`);
+console.log(`Куб числа: ${cube(number)}`);
 
-function Cube(num) {
+function cube(num) {
     return num ** 3;
 }
