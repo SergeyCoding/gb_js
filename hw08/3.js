@@ -13,22 +13,24 @@
 массиве тройки лежат под индексами 1 и 4. Если троек в сгенерированном массиве
 не окажется, значит нужно будет вывести пустой массив.
 */
+console.log("task3");
+{
 
-const arr3 = [];
+  const arr = [];
 
-for (let i = 0; i < 5; i++) {
-  arr3[i] = Math.floor(Math.random() * 10);
+  for (let i = 0; i < 5; i++) {
+    arr[i] = Math.floor(Math.random() * 10);
+  }
+  console.log("task 3");
+  console.log("Random array:");
+  console.log(arr);
+  console.log("Sum:");
+  console.log(arr.reduce((a, x) => a + x, 0));
+  console.log("Min:");
+  console.log(arr.reduce((a, x) => Math.min(a, x), Infinity));
+
+  console.log("Indexes with value=3:");
+  //console.log(arr.map((v, i) => (v === 3 ? i : NaN)).filter((v) => Number.isFinite(v)));
+  const b = arr.reduce((a, v, i) => v === 3 ? [...a, i] : a, []);
+  console.log(b);
 }
-console.log("task 3");
-console.log("Random array:");
-console.log(arr3);
-console.log("Sum:");
-console.log(arr3.reduce((a, x) => a + x, 0));
-console.log("Min:");
-console.log(arr3.reduce((a, x) => Math.min(a, x), Infinity));
-
-console.log("Indexes with value=3:");
-console.log(
-  arr3.map((v, i) => (v === 3 ? i : NaN)).filter((v) => Number.isFinite(v))
-);
-

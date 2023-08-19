@@ -10,11 +10,17 @@
 10 – четное число
 */
 
+var a = 1
+{
+  var a = 2
+  console.log(a);
+}
+console.log(a);
+
 for (let i = 0; i < 11; i++) {
   if (i === 0) {
     console.log("0 – это ноль");
-    continue;
+  } else {
+    console.log(`${i} - ${i % 2 === 0 ? "" : "не"}четное число`);
   }
-
-  console.log(`${i} - ${i % 2 === 0 ? "" : "не"}четное число`);
 }
