@@ -17,5 +17,9 @@ console.log('*** task 01');
     key7: 7,
   };
   
-  
+  for (const key in numbers) {
+    if (numbers.hasOwnProperty(key) && numbers[key]>=3) {
+        console.log(numbers[key]);
+    }
+  }
 }
