@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*
 Дан объект numbers. 
@@ -16,10 +16,10 @@ console.log('*** task 01');
     key6: 0,
     key7: 7,
   };
-  
+
   for (const key in numbers) {
-    if (numbers.hasOwnProperty(key) && numbers[key]>=3) {
-        console.log(numbers[key]);
+    if (numbers.hasOwnProperty(key) && numbers[key] >= 3) {
+      console.log(numbers[key]);
     }
   }
 }
