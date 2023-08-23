@@ -33,7 +33,7 @@ console.log('*** task 04');
   ];
 
   console.log(
-    products.filter((v) => v.hasOwnProperty('photos') && v.photos.length >= 1)
+    products.filter((v) => Object.hasOwn(v, 'photos') && v.photos.length >= 1)
   );
 
   console.log(products.sort((p1, p2) => p1.price - p2.price));
