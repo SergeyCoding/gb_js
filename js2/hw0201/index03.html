@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root" class="c1 c2">
+      <h1 class="h1"></h1>
+      <div>
+        <div class="my-class" id="mustBeFound"></div>
+      </div>
+    </div>
+    <div id="root2" class="c1 c2">
+      <h1 class="h1"></h1>
+      <div>
+        <div class="my-class1" id="mustBeNotFound"></div>
+      </div>
+    </div>
+    <!--  -->
+    <script>
+      function findElementByClass(element, className) {
+        if (element === null) {
+          return null;
+        }
+
+        if (element.classList.contains(className)) {
+          return element;
+        }
+
+        for (const node of element.childNodes) {
+          if (node.nodeType === 1) {
+            const el = findElementByClass(node, className);
+            if (el !== null) {
+              return el;
+            }
+          }
+        }
+
+        return null;
+      }
+
+      console.log('*** root');
+      const rootElement = document.getElementById('root');
+      const targetElement = findElementByClass(rootElement, 'my-class');
+      console.log(targetElement);
+      if (targetElement) {
+        console.log(targetElement.attributes.id);
+      }
+
+      console.log('*** root2');
+      const rootElement2 = document.getElementById('root2');
+      const targetElement2 = findElementByClass(rootElement2, 'my-class');
+      console.log(targetElement2);
+      if (targetElement2) {
+        console.log(targetElement2.attributes.id);
+      }
+    </script>
+  </body>
+</html>
