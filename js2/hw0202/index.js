@@ -61,39 +61,6 @@ console.log('1:', f());
 console.log('2: ', a.ff());
 console.log(a.ff.bind(a)());
 
-// Задание 1: ""Управление библиотекой книг""
-
-// Реализуйте класс Book, представляющий книгу, со следующими свойствами и методами:
-
-// Свойство title (название) - строка, название книги.
-// Свойство author (автор) - строка, имя автора книги.
-// Свойство pages (количество страниц) - число, количество страниц в книге.
-// Метод displayInfo() - выводит информацию о книге (название, автор и количество страниц).
-
-// Задание 2: ""Управление списком студентов""
-// Реализуйте класс Student, представляющий студента, со следующими свойствами и методами:
-
-// Свойство name (имя) - строка, имя студента.
-// Свойство age (возраст) - число, возраст студента.
-// Свойство grade (класс) - строка, класс, в котором учится студент.
-// Метод displayInfo() - выводит информацию о студенте (имя, возраст и класс).
-// javascript
-
-// // Пример использования класса
-// const student1 = new Student(""John Smith"", 16, ""10th grade"");
-// student1.displayInfo();
-// // Вывод:
-// // Name: John Smith
-// // Age: 16
-// // Grade: 10th grade
-
-// const student2 = new Student(""Jane Doe"", 17, ""11th grade"");
-// student2.displayInfo();
-// // Вывод:
-// // Name: Jane Doe
-// // Age: 17
-// // Grade: 11th grade"
-
 // Необязательные задачи
 
 // 1
@@ -107,6 +74,40 @@ console.log(a.ff.bind(a)());
 // console.log(phonebook.findContactByPhone("987-65-43")); // { name: "Петров", phone: "987-65-43" }
 // phonebook.deleteContact("Иванов");
 // console.log(phonebook.contacts); // [{ name: "Петров", phone: "987-65-43" }]
+
+class Phonebook {
+  contacts = [];
+
+  addContact(name, phone) {
+    this.contacts.push({ name, phone });
+  }
+
+  findContactByName(name) {
+    return this.contacts.find((x) => x.name === name);
+  }
+
+  findContactByPhone(phone) {
+    return this.contacts.find((x) => x.phone === phone);
+  }
+
+  deleteContact(name) {
+    const pos = this.contacts.reduce(
+      (p, c, i) => (p >= 0 ? p : c.name === name ? i : -1),
+      -1
+    );
+    if (pos >= 0) {
+      this.contacts.splice(pos, 1);
+    }
+  }
+}
+
+let phonebook = new Phonebook();
+phonebook.addContact('Иванов', '123-45-67');
+phonebook.addContact('Петров', '987-65-43');
+console.log(phonebook.findContactByName('Иванов')); // { name: "Иванов", phone: "123-45-67" }
+console.log(phonebook.findContactByPhone('987-65-43')); // { name: "Петров", phone: "987-65-43" }
+phonebook.deleteContact('Иванов');
+console.log(phonebook.contacts); // [{ name: "Петров", phone: "987-65-43" }]
 
 // 2
 // Это расширенная версия задачи с банком, которую мы решлали на семинаре:
