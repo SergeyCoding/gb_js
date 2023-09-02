@@ -161,15 +161,15 @@ class Bank {
   }
 
   withdraw(account, sum) {
-    if (accounts[account].sum > sum) {
-      return 'Ошибка. Недостаточно средств';
-    } else {
-      account[account].sum -= sum;
+    if (this.accounts[account].sum < sum) {
+      console.log('Ошибка. Недостаточно средств');
+      return;
     }
+    this.accounts[account].sum -= sum;
   }
 
   checkBalance(account) {
-    return account[account].sum;
+    console.log(`Account: ${account}, Balance:`, this.accounts[account].sum);
   }
 }
 
