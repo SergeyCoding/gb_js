@@ -49,17 +49,24 @@ b.displayInfo();
 // // Name: Jane Doe
 // // Age: 17
 // // Grade: 11th grade"
-const a = {
-  n: 'nnn',
-  ff: function (params) {
-    () => this;
-  },
-};
+class Student {
+  constructor(name, age, grade) {
+    this.name = name;
+    this.age = age;
+    this.grade = grade;
+  }
 
-const f = () => this;
-console.log('1:', f());
-console.log('2: ', a.ff());
-console.log(a.ff.bind(a)());
+  displayInfo() {
+    console.log('Name: ', this.name);
+    console.log('Age: ', this.age);
+    console.log('Grade: ', this.grade);
+  }
+}
+const student1 = new Student('John Smith', 16, '10th grade');
+student1.displayInfo();
+console.log();
+const student2 = new Student('Jane Doe', 17, '11th grade');
+student2.displayInfo();
 
 // Необязательные задачи
 
@@ -112,7 +119,9 @@ console.log(phonebook.contacts); // [{ name: "Петров", phone: "987-65-43" 
 // 2
 // Это расширенная версия задачи с банком, которую мы решлали на семинаре:
 
-// Создайте класс "Банк", который будет иметь следующие свойства: название банка, список клиентов и список счетов. Класс должен иметь методы для добавления нового клиента, открытия нового счета для клиента, пополнения счета, снятия денег со счета и проверки баланса.
+// Создайте класс "Банк", который будет иметь следующие свойства: название банка, список клиентов и список счетов.
+// Класс должен иметь методы для добавления нового клиента, открытия нового счета для клиента, пополнения счета,
+// снятия денег со счета и проверки баланса.
 
 // Пример работы:
 
@@ -131,3 +140,58 @@ console.log(phonebook.contacts); // [{ name: "Петров", phone: "987-65-43" 
 // bank.withdraw(987654321, 100);
 // bank.checkBalance(123456789);
 // bank.checkBalance(987654321);
+
+class Bank {
+  clients = [];
+  accounts = {};
+  constructor(name) {
+    this.name = name;
+  }
+
+  addClient(client) {
+    this.clients.push(client);
+  }
+
+  openAccount(client, account, sum) {
+    this.accounts[account] = { client, sum };
+  }
+
+  deposit(account, sum) {
+    this.accounts[account].sum += sum;
+  }
+
+  withdraw(account, sum) {
+    if (accounts[account].sum > sum) {
+      return 'Ошибка. Недостаточно средств';
+    } else {
+      account[account].sum -= sum;
+    }
+  }
+
+  checkBalance(account) {
+    return account[account].sum;
+  }
+}
+
+class Client {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+const bank = new Bank('Мой Банк');
+
+const client1 = new Client('Иван', 25);
+const client2 = new Client('Мария', 30);
+
+bank.addClient(client1);
+bank.addClient(client2);
+
+bank.openAccount(client1, 123456789, 1000);
+bank.openAccount(client2, 987654321, 500);
+
+bank.deposit(123456789, 200);
+bank.withdraw(987654321, 100);
+bank.checkBalance(123456789);
+bank.checkBalance(987654321);
