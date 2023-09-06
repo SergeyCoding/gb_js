@@ -25,3 +25,8 @@
   min-height: 100px;
   border: black 1px solid;
 }
+
+#imgId {
+  max-width: 300px;
+  max-height: 300px;
+}

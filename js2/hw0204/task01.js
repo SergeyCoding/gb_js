@@ -7,6 +7,12 @@
 document.querySelector('#GetUsersId').addEventListener('click', getUsers);
 
 function getUsers() {
+  if (localStorage.length > 0) {
+    for (let i = 1; i <= 10; i++) {
+      remove(i.toString());
+    }
+  }
+
   const url = 'https://jsonplaceholder.typicode.com/users';
 
   fetch(url)
@@ -16,7 +22,7 @@ function getUsers() {
     .then((data) => {
       console.log(data);
       data.forEach((v) => {
-        localStorage.setItem(v.id, v);
+        localStorage.setItem(v.id, v.name);
         draw(v);
       });
     });
@@ -34,7 +40,12 @@ function draw(val) {
 
 function remove(id) {
   console.log('remove', id);
-  document.querySelector(`#row${id}`).remove();
+  localStorage.removeItem(id);
+
+  const el = document.querySelector(`#row${id}`);
+  if (el) {
+    el.remove();
+  }
 }
 
 function runremove(params) {
