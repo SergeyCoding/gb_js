@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#UsersDataId {
+  width: 50%;
+}
+
+#UsersDataId div {
+  /* margin-right: 100px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+#UsersDataId div button {
+  flex-basis: 30%;
+}
+
+#DogsDataId {
+  width: 50%;
+  min-width: 100px;
+  min-height: 100px;
+  border: black 1px solid;
+}
