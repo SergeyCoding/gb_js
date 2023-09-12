@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Vue</title>
+  </head>
+  <body>
+    <p>
+      1. Создать кнопку "Перевернуть". При клике на кнопку текст кнопки, должен перевернуться и отобразиться в обратном
+      порядке.
+    </p>
+    <div id="task01"><button @click="revert">{{message}}</button></div>
+    <p>
+      2. Есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка”
+      нажав на кнопку "Добавить".
+    </p>
+    <p>3. * При клике на элемент списка он должен быть удален. (по желанию)</p>
+    <div id="task02">
+      <button @click="add">Добавить</button>
+      <p class="list-empty" v-if="elements.length===0">В списке нет элементов</p>
+      <ul>
+        <li v-for="item in elements"><p v-on:click="remove(item)" class="list-item">{{item}}</p></li>
+      </ul>
+    </div>
+    <!--  -->
+    <script>
+      const task01 = new Vue({
+        el: "#task01",
+        data: {
+          message: "Перевернуть",
+        },
+        methods: {
+          revert: function () {
+            this.message = this.message.split("").reverse().join("");
+          },
+        },
+      });
+
+      const task02 = new Vue({
+        el: "#task02",
+        data: {
+          id: 0,
+          elements: [],
+        },
+        methods: {
+          add: function () {
+            this.elements.push(`Новый элемент списка (${this.id++})`);
+            console.log(this.elements);
+          },
+          remove: function (el) {
+            var index = this.elements.indexOf(el);
+            if (index !== -1) {
+              this.elements.splice(index, 1);
+            }
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
