@@ -252,26 +252,31 @@ div {
 }
 
 .border-top-right {
+  margin-bottom: 24px;
   border-top-right-radius: 80px;
   overflow: hidden;
 }
 
 .border-top-left {
+  margin-bottom: 24px;
   border-top-left-radius: 80px;
   overflow: hidden;
 }
 
 .border-bottom-right {
+  margin-bottom: 40px;
   border-bottom-right-radius: 80px;
   overflow: hidden;
 }
 
 .border-bottom-left {
+  margin-bottom: 40px;
   border-bottom-left-radius: 80px;
   overflow: hidden;
 }
 
 .counter {
+  margin-top: 100px;
   height: 457px;
   background-color: #f4f0ec;
   display: flex;
@@ -315,6 +320,22 @@ div {
   height: 130px;
   border-style: none;
   border-right: #cda274 2px solid;
+}
+
+.blog {
+  max-width: 1200px;
+  margin: 100px auto 0;
+}
+.blog__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.blog__pic {
+  width: 340px;
+  border-radius: 45px 45px 0px 0px;
+  background: #eaeaea;
+  overflow: hidden;
 }
 
 .footer {
