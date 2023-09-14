@@ -1,6 +1,7 @@
 @use "vars";
 
 @import "reset";
+// @import "test";
 
 html {
   font-family: "DM Serif Display";
@@ -11,10 +12,6 @@ html {
 
 body {
   padding-top: 50px;
-}
-
-div {
-  border: 1px solid yellowgreen;
 }
 
 .header {
@@ -263,10 +260,12 @@ div {
 .blog {
   max-width: 1200px;
   margin: 100px auto 0;
+
   &__list {
+    margin-top: 52px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
   }
 
   &__pic {
@@ -275,10 +274,137 @@ div {
     background: #eaeaea;
     overflow: hidden;
   }
+
+  &__item {
+    position: relative;
+    width: 382px;
+    padding: 21px;
+    border-radius: 62px;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.25);
+
+    > p {
+      width: 305px;
+      margin-bottom: calc(30px + 52px + 30px);
+      color: #292f36;
+      font-family: DM Serif Display;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 125%; /* 31.25px */
+      letter-spacing: 0.5px;
+    }
+
+    &_selected {
+      background: #f4f0ec;
+
+      circle {
+        fill: white;
+      }
+    }
+  }
+
+  // &__relative {
+  //   position: relative;
+  //   background: whitesmoke;
+  //   height: 30px;
+  // }
+
+  &__nav {
+    position: absolute;
+    bottom: 30px;
+    width: calc(100% - 42px);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      color: #4d5053;
+      font-family: Jost;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 24px */
+      letter-spacing: 0.16px;
+      text-transform: capitalize;
+    }
+  }
 }
 
 .footer {
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 134px;
+  margin-top: 96px;
+
+  display: flex;
+  justify-content: space-between;
+  align-self: start;
+  gap: 101px;
+
+  &__logo {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+
+    color: #292f36;
+    font-family: DM Serif Display;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 50px */
+  }
+
+  &__left {
+    width: 393px;
+
+    > p {
+      margin-top: 18px;
+      color: #4d5053;
+      font-family: Jost;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 33px */
+      letter-spacing: 0.22px;
+    }
+  }
+
+  &__socials {
+    margin-top: 31px;
+
+    > svg {
+      margin-right: 54px;
+    }
+  }
+
+  &__caption {
+    color: #292f36;
+    font-family: DM Serif Display;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 31.25px */
+  }
+
+  &__content {
+    margin-top: 33px;
+    color: #4d5053;
+    font-family: Jost;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 66px */
+    letter-spacing: 0.22px;
+  }
+
+  &__middle {
+    width: 125px;
+  }
+
+  &__right {
+    width: 258px;
+  }
 }
