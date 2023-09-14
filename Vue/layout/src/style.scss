@@ -80,8 +80,10 @@ body {
       font-size: 65px;
       font-style: normal;
       font-weight: 400;
-      line-height: 125%; /* 81.25px */
+      line-height: 125%;
+      /* 81.25px */
     }
+
     p {
       margin-top: 18px;
       color: #4d5053;
@@ -89,7 +91,8 @@ body {
       font-size: 22px;
       font-style: normal;
       font-weight: 400;
-      line-height: 150%; /* 33px */
+      line-height: 150%;
+      /* 33px */
       letter-spacing: 0.22px;
     }
   }
@@ -114,7 +117,8 @@ body {
       font-size: 18px;
       font-style: normal;
       font-weight: 600;
-      line-height: 125%; /* 22.5px */
+      line-height: 125%;
+      /* 22.5px */
       letter-spacing: 0.36px;
     }
   }
@@ -139,7 +143,8 @@ body {
       font-size: 25px;
       font-style: normal;
       font-weight: 400;
-      line-height: 125%; /* 31.25px */
+      line-height: 125%;
+      /* 31.25px */
       letter-spacing: 0.5px;
     }
 
@@ -149,7 +154,8 @@ body {
       font-size: 22px;
       font-style: normal;
       font-weight: 400;
-      line-height: 150%; /* 33px */
+      line-height: 150%;
+      /* 33px */
       letter-spacing: 0.22px;
     }
   }
@@ -166,7 +172,8 @@ body {
       font-size: 50px;
       font-style: normal;
       font-weight: 400;
-      line-height: 125%; /* 62.5px */
+      line-height: 125%;
+      /* 62.5px */
       letter-spacing: 1px;
     }
 
@@ -177,7 +184,8 @@ body {
       font-size: 22px;
       font-style: normal;
       font-weight: 400;
-      line-height: 150%; /* 33px */
+      line-height: 150%;
+      /* 33px */
       letter-spacing: 0.22px;
     }
   }
@@ -188,16 +196,19 @@ body {
   border-top-right-radius: 80px;
   overflow: hidden;
 }
+
 .border-top-left {
   margin-bottom: 24px;
   border-top-left-radius: 80px;
   overflow: hidden;
 }
+
 .border-bottom-right {
   margin-bottom: 40px;
   border-bottom-right-radius: 80px;
   overflow: hidden;
 }
+
 .border-bottom-left {
   margin-bottom: 40px;
   border-bottom-left-radius: 80px;
@@ -218,7 +229,8 @@ body {
   font-size: 85px;
   font-style: normal;
   font-weight: 400;
-  line-height: 125%; /* 106.25px */
+  line-height: 125%;
+  /* 106.25px */
   letter-spacing: 1.7px;
 
   &__content {
@@ -236,7 +248,8 @@ body {
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 33px */
+    line-height: 150%;
+    /* 33px */
     letter-spacing: 0.22px;
   }
 
@@ -283,7 +296,7 @@ body {
     border: 1px solid #e7e7e7;
     box-shadow: 0px 10px 30px 0px rgba(255, 255, 255, 0.25);
 
-    > p {
+    >p {
       width: 305px;
       margin-bottom: calc(30px + 52px + 30px);
       color: #292f36;
@@ -291,7 +304,8 @@ body {
       font-size: 25px;
       font-style: normal;
       font-weight: 400;
-      line-height: 125%; /* 31.25px */
+      line-height: 125%;
+      /* 31.25px */
       letter-spacing: 0.5px;
     }
 
@@ -325,7 +339,8 @@ body {
       font-size: 16px;
       font-style: normal;
       font-weight: 400;
-      line-height: 150%; /* 24px */
+      line-height: 150%;
+      /* 24px */
       letter-spacing: 0.16px;
       text-transform: capitalize;
     }
@@ -354,20 +369,22 @@ body {
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%; /* 50px */
+    line-height: 125%;
+    /* 50px */
   }
 
   &__left {
     width: 393px;
 
-    > p {
+    >p {
       margin-top: 18px;
       color: #4d5053;
       font-family: Jost;
       font-size: 22px;
       font-style: normal;
       font-weight: 400;
-      line-height: 150%; /* 33px */
+      line-height: 150%;
+      /* 33px */
       letter-spacing: 0.22px;
     }
   }
@@ -375,7 +392,7 @@ body {
   &__socials {
     margin-top: 31px;
 
-    > svg {
+    >svg {
       margin-right: 54px;
     }
   }
@@ -386,7 +403,8 @@ body {
     font-size: 25px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%; /* 31.25px */
+    line-height: 125%;
+    /* 31.25px */
   }
 
   &__content {
@@ -396,7 +414,8 @@ body {
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 66px */
+    line-height: 150%;
+    /* 66px */
     letter-spacing: 0.22px;
   }
 
