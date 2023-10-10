@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*
 ###Задание 1
@@ -22,9 +22,9 @@
 //   year: "Год выпуска",
 // };
 
-console.log("###Задание 1");
+console.log('###Задание 1');
 
-const MusicCollection = {
+const musicCollection = {
   albums: [],
   [Symbol.iterator]: function () {
     let current = 0;
@@ -40,16 +40,16 @@ const MusicCollection = {
   },
 };
 
-MusicCollection.albums.push({ title: "title 001", artist: "artist 001", year: "2005" });
-MusicCollection.albums.push({ title: "title 002", artist: "artist 002", year: "2007" });
-MusicCollection.albums.push({ title: "title 003", artist: "artist 003", year: "2009" });
-MusicCollection.albums.push({ title: "title 004", artist: "artist 004", year: "2011" });
-MusicCollection.albums.push({ title: "title 005", artist: "artist 005", year: "2013" });
-MusicCollection.albums.push({ title: "title 006", artist: "artist 006", year: "2015" });
-MusicCollection.albums.push({ title: "title 007", artist: "artist 007", year: "2017" });
+musicCollection.albums.push({ title: 'title 001', artist: 'artist 001', year: '2005' });
+musicCollection.albums.push({ title: 'title 002', artist: 'artist 002', year: '2007' });
+musicCollection.albums.push({ title: 'title 003', artist: 'artist 003', year: '2009' });
+musicCollection.albums.push({ title: 'title 004', artist: 'artist 004', year: '2011' });
+musicCollection.albums.push({ title: 'title 005', artist: 'artist 005', year: '2013' });
+musicCollection.albums.push({ title: 'title 006', artist: 'artist 006', year: '2015' });
+musicCollection.albums.push({ title: 'title 007', artist: 'artist 007', year: '2017' });
 
-console.log(MusicCollection);
+// console.log(musicCollection);
 
-for (const album of MusicCollection) {
-  console.log(album);
+for (const album of musicCollection) {
+  console.log(`${album.title} - ${album.artist} (${album.year})`);
 }
