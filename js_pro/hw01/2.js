@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*
 ###Задание 2
@@ -32,7 +32,7 @@
 Клиент Ирина заказала: Чизкейк.
 */
 
-console.log("\n###Задание 2");
+console.log('\n###Задание 2');
 
 class Restaurant {
   orders = new Map();
@@ -58,6 +58,7 @@ class Restaurant {
   /**
    * блюда, заказанные клиентом
    * @param {{client:string}} client
+   * @returns {[string]}
    */
   getOrder(client) {
     if (this.orders.has(client)) {
@@ -87,35 +88,35 @@ class Restaurant {
 }
 
 const cooks = [
-  { name: "Виктор", specialization: "Пицца" },
-  { name: "Ольга", specialization: "Суши" },
-  { name: "Дмитрий", specialization: "Десерты" },
+  { name: 'Виктор', specialization: 'Пицца' },
+  { name: 'Ольга', specialization: 'Суши' },
+  { name: 'Дмитрий', specialization: 'Десерты' },
 ];
 
 const food = new Map();
-food.set('Пицца "Маргарита"', "Пицца");
-food.set('Пицца "Пепперони"', "Пицца");
-food.set('Суши "Филадельфия"', "Суши");
-food.set('Суши "Калифорния"', "Суши");
-food.set("Тирамису", "Десерты");
-food.set("Чизкейк", "Десерты");
+food.set('Пицца "Маргарита"', 'Пицца');
+food.set('Пицца "Пепперони"', 'Пицца');
+food.set('Суши "Филадельфия"', 'Суши');
+food.set('Суши "Калифорния"', 'Суши');
+food.set('Тирамису', 'Десерты');
+food.set('Чизкейк', 'Десерты');
 
 const rest = new Restaurant(cooks, food);
 
-const clients = [{ client: "Алексей" }, { client: "Мария" }, { client: "Ирина" }];
+const clients = [{ client: 'Алексей' }, { client: 'Мария' }, { client: 'Ирина' }];
 
-rest.makeOrder(clients[0], 'Пицца "Пепперони"', "Тирамису");
+rest.makeOrder(clients[0], 'Пицца "Пепперони"', 'Тирамису');
 rest.makeOrder(clients[1], 'Суши "Калифорния"', 'Пицца "Маргарита"');
-rest.makeOrder(clients[2], "Чизкейк");
+rest.makeOrder(clients[2], 'Чизкейк');
 
 // console.log(rest);
 
-console.log("\nКлиенты");
+console.log('\nКлиенты');
 for (const client of clients) {
   console.log(`Заказ ${client.client}: ${rest.getOrder(client)}`);
 }
 
-console.log("\nПовара");
+console.log('\nПовара');
 
 for (const cook of cooks) {
   console.log(`Повар ${cook.name} готовит: ${rest.getTasksForCooks(cook)}`);
