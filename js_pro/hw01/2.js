@@ -34,25 +34,89 @@
 
 console.log("\n###Задание 2");
 
-const cooks = new Map();
-cooks.set("Виктор", "Пицца");
-cooks.set("Ольга", "Суши");
-cooks.set("Дмитрий", "Десерты");
+class Restaurant {
+  orders = new Map();
 
-console.log(cooks);
+  constructor(cooks, food) {
+    this.cooks = cooks;
+    this.food = food;
+  }
+
+  /**
+   * Сделать заказ
+   * @param {{client:string}} client
+   * @param {[string]} food
+   */
+  makeOrder(client, ...food) {
+    if (this.orders.has(client)) {
+      this.orders[client].push(food);
+    } else {
+      this.orders.set(client, food);
+    }
+  }
+
+  /**
+   * блюда, заказанные клиентом
+   * @param {{client:string}} client
+   */
+  getOrder(client) {
+    if (this.orders.has(client)) {
+      return this.orders.get(client);
+    } else {
+      return [];
+    }
+  }
+
+  /**
+   * какой повар готовит какое блюдо.
+   */
+  getTasksForCooks(cook) {
+    const result = [];
+
+    for (const order of this.orders.values()) {
+      for (let i = 0; i < order.length; i++) {
+        const spec = this.food.get(order[i]);
+        if (cook.specialization === spec) {
+          result.push(order[i]);
+        }
+      }
+    }
+
+    return result;
+  }
+}
+
+const cooks = [
+  { name: "Виктор", specialization: "Пицца" },
+  { name: "Ольга", specialization: "Суши" },
+  { name: "Дмитрий", specialization: "Десерты" },
+];
 
 const food = new Map();
-food.set("Пицца", new Set(['Пицца "Маргарита"', 'Пицца "Пепперони"']));
-food.set("Суши", new Set(['Суши "Филадельфия"', 'Суши "Калифорния"']));
-food.set("Десерты", new Set(["Тирамису", "Чизкейк"]));
-console.log(food);
+food.set('Пицца "Маргарита"', "Пицца");
+food.set('Пицца "Пепперони"', "Пицца");
+food.set('Суши "Филадельфия"', "Суши");
+food.set('Суши "Калифорния"', "Суши");
+food.set("Тирамису", "Десерты");
+food.set("Чизкейк", "Десерты");
 
-const orders = [];
-orders.push({ orderId: 1, client: "Алексей", order: new Set(['Пицца "Пепперони"', "Тирамису"]) });
-orders.push({ orderId: 2, client: "Мария", order: new Set(['Суши "Калифорния"', 'Пиццу "Маргарита"']) });
-orders.push({ orderId: 3, client: "Ирина", order: new Set(["Чизкейк"]) });
-console.log(orders);
+const rest = new Restaurant(cooks, food);
 
-function makeOrder(client, food) {}
+const clients = [{ client: "Алексей" }, { client: "Мария" }, { client: "Ирина" }];
 
-function tasksForCooks() {}
+rest.makeOrder(clients[0], 'Пицца "Пепперони"', "Тирамису");
+rest.makeOrder(clients[1], 'Суши "Калифорния"', 'Пицца "Маргарита"');
+rest.makeOrder(clients[2], "Чизкейк");
+
+// console.log(rest);
+
+console.log("\nКлиенты");
+for (const client of clients) {
+  console.log(`Заказ ${client.client}: ${rest.getOrder(client)}`);
+}
+
+console.log("\nПовара");
+
+for (const cook of cooks) {
+  console.log(`Повар ${cook.name} готовит: ${rest.getTasksForCooks(cook)}`);
+}
