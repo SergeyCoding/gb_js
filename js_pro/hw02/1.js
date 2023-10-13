@@ -37,9 +37,17 @@ class Library {
     }
   }
 
+  /**
+   * @returns {[string]}
+   */
   get allBooks() {
     return Array.from(this.#books);
   }
+
+  /**
+   *
+   * @param {string} title
+   */
   addBook(title) {
     if (this.hasBook(title)) {
       throw new Error("Книга с таким названием уже существует в списке");
@@ -48,6 +56,10 @@ class Library {
     this.#books.add(title);
   }
 
+  /**
+   *
+   * @param {string} title
+   */
   removeBook(title) {
     if (!this.hasBook(title)) {
       throw new Error("книги с таким названием нет в списке");
@@ -55,21 +67,12 @@ class Library {
     this.#books.delete(title);
   }
 
+  /**
+   *
+   * @param {string} title
+   * @returns {boolean}
+   */
   hasBook(title) {
     return this.#books.has(title);
   }
-}
-
-try {
-  const library = new Library(["n1", "n2", "n3", "n4", "n5", "n6", "n7", "n8"]);
-
-  console.log(library.allBooks);
-  library.addBook("q1");
-  console.log(library.allBooks);
-  library.removeBook("n1");
-  console.log(library.allBooks);
-  library.removeBook("n1");
-  console.log(library.allBooks);
-} catch (error) {
-  console.error(error);
 }
