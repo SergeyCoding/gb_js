@@ -53,40 +53,4 @@ const initialData = [
   },
 ];
 
-for (const item of initialData) {
-  item.reviews.forEach((x) => addReview({ product: item.product, review: x.text }, false));
-}
 
-document.querySelector(".send-button").addEventListener("click", sendMessage);
-
-function sendMessage() {
-  const product = document.querySelector(".send-product").value;
-  const review = document.querySelector(".send-message").value;
-  addReview({ product, review });
-}
-
-/**
- *
- * @param {{product:string, review:string}} message
- * @param {boolean} isValidate
- */
-function addReview(message, isValidate = true) {
-  if (isValidate && message.product.length < 1) {
-    throw new Error("Не указан товар");
-  }
-
-  if (isValidate && message.review.length < 50) {
-    throw new Error("Длина введенного отзыва менее 50 символов");
-  }
-
-  if (isValidate && message.review.length > 500) {
-    throw new Error("Длина введенного отзыва более 500 символов");
-  }
-
-  const sc = document.querySelector(".send-container");
-
-  const newDiv = document.createElement("div");
-  newDiv.innerHTML = `<h1>${message.product}</h1><p>${message.review}</p>`;
-
-  sc.append(newDiv);
-}
