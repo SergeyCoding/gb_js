@@ -53,4 +53,27 @@ const initialData = [
   },
 ];
 
+for (const item of initialData) {
+  item.reviews.forEach((x) => updateContainer({ product: item.product, review: x.text }));
+}
 
+document.querySelector(".send-button").addEventListener("click", sendMessage);
+
+function sendMessage(e) {
+  const product = document.querySelector(".send-product").value;
+  const text = document.querySelector(".send-message").value;
+  updateContainer({ product, review: text });
+}
+
+/**
+ *
+ * @param {{product:string, review:string}} message
+ */
+function updateContainer(message) {
+  const sc = document.querySelector(".send-container");
+
+  const newDiv = document.createElement("div");
+  newDiv.innerHTML = `<h1>${message.product}</h1><p>${message.review}</p>`;
+
+  sc.append(newDiv);
+}
