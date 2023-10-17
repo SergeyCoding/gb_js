@@ -53,15 +53,15 @@ const addButton = document.querySelector('#addButtonId');
 const showReview = document.querySelector('#showReviewId');
 
 const gs = new GoodsManager();
-console.log(gs.getGoods());
+// console.log(gs.getGoods());
 
 if (gs.getGoods().length === 0) {
   gs.setGoods(initialData().map((x) => x.product));
-  console.log('init', gs.getGoods());
+  // console.log('init', gs.getGoods());
 
   for (const item of gs.getGoods()) {
     const rs = new ReviewManager(item);
-    console.log(initialData().find((x) => x.product === item));
+    // console.log(initialData().find((x) => x.product === item));
     rs.setReviews(
       initialData()
         .find((x) => x.product === item)
@@ -88,15 +88,15 @@ addButton?.addEventListener('click', () => {
   if (!set.has(currentProduct.value)) {
     set.add(currentProduct.value);
     gs.setGoods(Array.from(set));
-    console.log(gs.getGoods());
+    // console.log(gs.getGoods());
   }
 
-  console.log('currentReview', currentReview.value);
+  // console.log('currentReview', currentReview.value);
   const rs = new ReviewManager(currentProduct.value);
   const setReviews = new Set(rs.getReviews());
   setReviews.add(currentReview.value);
   rs.setReviews(Array.from(setReviews));
-  console.log(rs.getReviews());
+  // console.log(rs.getReviews());
 });
 
 showReview?.addEventListener('click', () => {
@@ -111,6 +111,7 @@ showReview?.addEventListener('click', () => {
 
   for (const item of rs.getReviews()) {
     const newDiv = document.createElement('div');
+    newDiv.style = { ...newDiv.style, display: 'flex', alignItems: 'center' };
     newDiv.innerHTML = `<p>${item}</p><button class="rmBtn">удалить</button>`;
 
     document.querySelector('.review-container').append(newDiv);
@@ -122,12 +123,13 @@ showReview?.addEventListener('click', () => {
 });
 
 function rm(e) {
-  console.log(e);
-  console.log(e.target.parentNode.childNodes[0].innerText);
+  // console.log(e);
+  // console.log(e.target.parentNode.childNodes[0].innerText);
   const rs = new ReviewManager(selectGoods.value);
   rs.removeReviews(e.target.parentNode.childNodes[0].innerText);
-  console.log(rs.getReviews());
-  e.target.parentNode.remove();
+  // console.log(rs.getReviews());
+  // e.target.parentNode.remove();
+  showReview.click();
 }
 
 function initialData() {
