@@ -32,7 +32,7 @@ async function fetchNews() {
 
   if (Math.random() > 0.5) {
     console.log('reject');
-    return 'not found';
+    throw new Error('not found');
   }
 
   return [
@@ -78,8 +78,9 @@ triggerBtn.addEventListener('click', async () => {
 
   try {
     renderContent(await fetchNews());
-  } catch {
-    renderContent(reason);
+  } catch (e) {
+    // console.log(e);
+    renderContent(e.message);
   } finally {
     triggerBtn.disabled = false;
   }
