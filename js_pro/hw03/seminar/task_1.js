@@ -25,21 +25,21 @@ const triggerBtn = document.querySelector('#downloadBtn');
 const resetBtn = document.querySelector('#resetBtn');
 const contentEl = document.querySelector('.content');
 
-function fetchNews() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      // const result = fetch('https://jsonplaceholder.org/posts', { signal: controller.signal });
-      if (Math.random() > 0.5) {
-        console.log('reject');
-        reject('not found');
-      }
-      resolve([
-        { title: 'news 1', content: 'content 1' },
-        { title: 'news 2', content: 'content 2' },
-        { title: 'news 3', content: 'content 3' },
-      ]);
-    }, 2000);
-  });
+async function fetchNews() {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  // const result = fetch('https://jsonplaceholder.org/posts', { signal: controller.signal });
+
+  if (Math.random() > 0.5) {
+    console.log('reject');
+    return 'not found';
+  }
+
+  return [
+    { title: 'news 1', content: 'content 1' },
+    { title: 'news 2', content: 'content 2' },
+    { title: 'news 3', content: 'content 3' },
+  ];
 }
 
 /**
@@ -75,14 +75,12 @@ const renderContent = (renderData) => {
 
 triggerBtn.addEventListener('click', async () => {
   triggerBtn.disabled = true;
-  fetchNews()
-    .then((result) => {
-      renderContent(result);
-    })
-    .catch((reason) => {
-      renderContent(reason);
-    })
-    .finally(() => {
-      triggerBtn.disabled = false;
-    });
+
+  try {
+    renderContent(await fetchNews());
+  } catch {
+    renderContent(reason);
+  } finally {
+    triggerBtn.disabled = false;
+  }
 });
