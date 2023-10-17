@@ -34,6 +34,16 @@ class ReviewManager {
   setReviews(reviews) {
     return localStorage.setItem(`goods{${this.goods}}`, JSON.stringify({ data: reviews }));
   }
+  removeReviews(reviews) {
+    const arrReviews = this.getReviews();
+
+    const index = arrReviews.indexOf(reviews);
+    if (index > -1) {
+      arrReviews.splice(index, 1);
+    }
+
+    this.setReviews(arrReviews);
+  }
 }
 
 const selectGoods = document.querySelector('#selectGoodsId');
@@ -101,11 +111,24 @@ showReview?.addEventListener('click', () => {
 
   for (const item of rs.getReviews()) {
     const newDiv = document.createElement('div');
-    newDiv.innerHTML = `<p>${item}</p>`;
+    newDiv.innerHTML = `<p>${item}</p><button class="rmBtn">удалить</button>`;
 
     document.querySelector('.review-container').append(newDiv);
   }
+
+  document.querySelectorAll('.rmBtn').forEach((x) => {
+    x.addEventListener('click', rm);
+  });
 });
+
+function rm(e) {
+  console.log(e);
+  console.log(e.target.parentNode.childNodes[0].innerText);
+  const rs = new ReviewManager(selectGoods.value);
+  rs.removeReviews(e.target.parentNode.childNodes[0].innerText);
+  console.log(rs.getReviews());
+  e.target.parentNode.remove();
+}
 
 function initialData() {
   return [
