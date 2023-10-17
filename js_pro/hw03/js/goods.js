@@ -48,6 +48,16 @@ console.log(gs.getGoods());
 if (gs.getGoods().length === 0) {
   gs.setGoods(initialData().map((x) => x.product));
   console.log('init', gs.getGoods());
+
+  for (const item of gs.getGoods()) {
+    const rs = new ReviewManager(item);
+    console.log(initialData().find((x) => x.product === item));
+    rs.setReviews(
+      initialData()
+        .find((x) => x.product === item)
+        .reviews.map((x) => x.text)
+    );
+  }
 }
 
 gs.getGoods().forEach((x) => {
