@@ -4,41 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="1.js" defer></script>
-    <script src="2.js" defer></script>
-    <style>
-      .send-container {
-        font-size: 12px;
-        line-height: 1;
-      }
-    </style>
+    <script src="./js/goods.js" defer></script>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div style="width: 800px; margin: 10px auto">
-      <p>Наименование товара</p>
-      <input class="send-product" type="text" />
+    <div class="container">
+      <div class="task">
+        <h1>Страница добавления отзыва:</h1>
+        <p>Поле для ввода названия продукта.</p>
+        <p>Текстовое поле для самого отзыва.</p>
+        <p>Кнопка "Добавить отзыв", которая сохраняет отзыв о продукте в LocalStorage.</p>
+      </div>
+      <p>Наименование продукта</p>
+      <select name="goods" id="selectGoodsId"></select>
+      <br />
+      <br />
+      <input class="send-product" type="text" id="currentProductId" />
       <p>Отзыв о товаре</p>
       <textarea class="send-message" name="" id="" cols="30" rows="10"></textarea>
       <p></p>
-      <input class="send-button" type="button" value="Отправить" />
-      <div class="send-container">
-        <!-- <div>
-          <h1>aaaa</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, doloremque molestias numquam veritatis
-            at porro saepe. Sunt aliquid dicta quos at voluptas incidunt, nihil voluptates fugit itaque! Nemo, tempora
-            odio?
-          </p>
-        </div>
-        <div>
-          <h1>aaaa</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, doloremque molestias numquam veritatis
-            at porro saepe. Sunt aliquid dicta quos at voluptas incidunt, nihil voluptates fugit itaque! Nemo, tempora
-            odio?
-          </p>
-        </div> -->
-      </div>
+      <input class="send-button" type="button" value="Добавить отзыв" id="addButtonId" />
+
+      <a href="reviews.html">Отзывы</a>
     </div>
   </body>
 </html>
