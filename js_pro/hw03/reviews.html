@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="1.js" defer></script>
-    <script src="2.js" defer></script>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <script src="./js/goods.js" defer></script>
+
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -19,9 +20,12 @@
           LocalStorage).
         </p>
       </div>
-      <p>Список продуктов</p>
-      <ul class="products-list"></ul>
-      <p>Отзывы о <span></span></p>
+      <p>Наименование продукта</p>
+      <select name="goods" id="selectGoodsId"></select>
+      <br />
+      <br />
+
+      <input class="send-button" type="button" value="Показать отзывы" id="showReviewId" />
       <div class="review-container">
         <!-- <div>
           <h1>aaaa</h1>
