@@ -1,0 +1,35 @@
+.send-container {
+  font-size: 12px;
+  line-height: 1;
+}
+.review-container {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.container {
+  width: 800px;
+  margin: 10px auto;
+
+  > textarea {
+    width: 100%;
+  }
+}
+
+.task {
+  padding: 30px;
+  background-color: aliceblue;
+
+  > p {
+    margin: 0;
+    padding: 0;
+    margin-top: 5px;
+    line-height: 110%;
+  }
+}
+
+a {
+  text-align: center;
+  display: block;
+  margin: 50px;
+}

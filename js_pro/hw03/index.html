@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/goods.js" defer></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="task">
+        <h1>Страница добавления отзыва:</h1>
+        <p>Поле для ввода названия продукта.</p>
+        <p>Текстовое поле для самого отзыва.</p>
+        <p>Кнопка "Добавить отзыв", которая сохраняет отзыв о продукте в LocalStorage.</p>
+      </div>
+      <p>Наименование продукта</p>
+      <select name="goods" id="selectGoodsId"></select>
+      <br />
+      <br />
+      <input class="send-product" type="text" id="currentProductId" />
+      <p>Отзыв о товаре</p>
+      <textarea class="send-message" name="" id="currentReviewId" cols="30" rows="10"></textarea>
+      <p></p>
+      <input class="send-button" type="button" value="Добавить отзыв" id="addButtonId" />
+
+      <a href="reviews.html">Отзывы</a>
+    </div>
+  </body>
+</html>
