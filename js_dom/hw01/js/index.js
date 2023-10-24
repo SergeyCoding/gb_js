@@ -1,5 +1,8 @@
 import { jsonData } from './jsonData.js';
 
+const DO_RECORD = 'Записаться';
+const CANCEL_RECORD = 'Отмена записи';
+
 function loading() {
   const container = document.querySelector('.table tbody');
 
@@ -9,8 +12,6 @@ function loading() {
     container.append(createRow(item));
   }
 }
-
-loading();
 
 function createRow({ name, date, maxPersonCount, currentPersonCount, isRecorded }) {
   console.log({ name, date, maxPersonCount, currentPersonCount, isRecorded });
@@ -34,9 +35,9 @@ function generateBtn(maxPersonCount, currentPersonCount, isRecorded) {
   btn.onclick = onBtnClick;
 
   if (isRecorded) {
-    btn.textContent = 'Отмена записи';
+    btn.textContent = CANCEL_RECORD;
   } else {
-    btn.textContent = 'Записаться';
+    btn.textContent = DO_RECORD;
 
     if (currentPersonCount >= maxPersonCount) {
       btn.classList.add('disabled');
@@ -47,20 +48,21 @@ function generateBtn(maxPersonCount, currentPersonCount, isRecorded) {
 }
 
 function onBtnClick() {
-  console.log(this);
-  //   const btn = document.createElement('button');
-  //   btn.className = 'btn btn-primary';
+  const btnText = this.textContent;
+  const currentCount = this.parentElement.previousSibling.textContent;
+  const maxCount = this.parentElement.previousSibling.previousSibling.textContent;
+  console.log(maxCount, currentCount, btnText);
 
-  //   if (this.isRecorded) {
-  //     btn.textContent = 'Отмена записи';
-  //     return btn;
-  //   }
+  if (btnText === DO_RECORD) {
+    this.parentElement.previousSibling.textContent = Number(this.parentElement.previousSibling.textContent) + 1;
+    this.textContent = CANCEL_RECORD;
+    return;
+  }
 
-  //   if (this.currentPersonCount < this.maxPersonCount) {
-  //     btn.textContent = 'Отмена записи';
-  //     return btn;
-  //   }
-
-  //   btn.textContent = 'Записаться';
-  //   return btn;
+  if (btnText === CANCEL_RECORD) {
+    this.parentElement.previousSibling.textContent = Number(this.parentElement.previousSibling.textContent) - 1;
+    this.textContent = DO_RECORD;
+  }
 }
+
+loading();
