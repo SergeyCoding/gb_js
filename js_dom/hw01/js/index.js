@@ -6,15 +6,12 @@ const CANCEL_RECORD = 'Отмена записи';
 function loading() {
   const container = document.querySelector('.table tbody');
 
-  console.log(container);
-
   for (const item of jsonData()) {
     container.append(createRow(item));
   }
 }
 
 function createRow({ name, date, maxPersonCount, currentPersonCount, isRecorded }) {
-  console.log({ name, date, maxPersonCount, currentPersonCount, isRecorded });
   const node = document.createElement('tr');
 
   node.insertAdjacentHTML('beforeend', `<td >${name}</td>`);
