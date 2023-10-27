@@ -18,14 +18,14 @@
   gap: 100px;
 }
 
-.spinner-block {
+.slider-block {
   margin-top: 10px;
   display: flex;
   justify-content: center;
   gap: 50px;
 }
 
-.spinner {
+.slider {
   width: 10px;
   height: 10px;
   border: 1px solid black;
@@ -34,7 +34,7 @@
   cursor: pointer;
 }
 
-.spinner-selected {
+.slider-selected {
   background-color: blue;
   border: blue;
 }
