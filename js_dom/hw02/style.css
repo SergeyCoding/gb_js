@@ -4,8 +4,11 @@
 }
 
 .container {
-  min-height: 100px;
-  border: 1px solid gray;
+  min-height: 10px;
+  /* border: 1px solid gray; */
+
+  display: flex;
+  justify-content: center;
 }
 
 .nav {
