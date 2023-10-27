@@ -25,4 +25,10 @@ export class Slider {
   get current() {
     return this.#selected;
   }
+
+  set current(n) {
+    if (n >= 0 && n < this.#max) {
+      this.#selected = n;
+    }
+  }
 }

@@ -12,17 +12,25 @@ const nextBtn = document.querySelector('.nextBtn');
 const spinnerBlock = document.querySelector('.spinner-block');
 
 const indicator = new SpinnerIndicator(spinnerBlock, pictures.length);
-
 indicator.drawInit();
 
 prevBtn.onclick = () => {
   slider.prev();
-  img.src = './img/' + pictures[slider.current];
+  changePicture(slider.current);
   indicator.setSelected(slider.current);
 };
 
 nextBtn.onclick = () => {
   slider.next();
-  img.src = './img/' + pictures[slider.current];
+  changePicture(slider.current);
   indicator.setSelected(slider.current);
 };
+
+document.addEventListener('spinner-click', (e) => {
+  slider.current = e.spinnerPoint;
+  changePicture(slider.current);
+});
+
+function changePicture(n) {
+  img.src = './img/' + pictures[n];
+}

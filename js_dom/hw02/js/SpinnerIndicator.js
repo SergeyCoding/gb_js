@@ -12,7 +12,12 @@ export class SpinnerIndicator {
     for (let i = 0; i < this.#max; i++) {
       const el = document.createElement('div');
       el.className = 'spinner';
-      el.setAttribute;
+      el.onclick = (e) => {
+        this.setSelected(i);
+        let event = new Event('spinner-click', { bubbles: true });
+        event.spinnerPoint = i;
+        e.target.dispatchEvent(event);
+      };
       result.push(el);
     }
     return result;
